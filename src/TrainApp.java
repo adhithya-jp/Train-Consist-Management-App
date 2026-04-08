@@ -1,16 +1,18 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class TrainApp {
 
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        String[] bogieNames = {"Sleeper", "AC Chair", "First Class", "Cargo", "Engine", "Pantry Car"};
 
-        List<String> bogies = new ArrayList<>();
+        System.out.println("=== Sort Bogie Names Using Arrays.sort() ===");
 
-        System.out.println("Train consist initialized.");
-        System.out.println("Current bogie count: " + bogies.size());
+        System.out.println("Before sorting: " + Arrays.toString(bogieNames));
+
+        Arrays.sort(bogieNames);
+
+        System.out.println("After sorting:  " + Arrays.toString(bogieNames));
 
     }
 }
