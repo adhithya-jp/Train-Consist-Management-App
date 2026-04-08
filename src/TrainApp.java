@@ -1,16 +1,34 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class TrainApp {
 
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        int[] capacities = {72, 48, 110, 64, 36, 90};
 
-        List<String> bogies = new ArrayList<>();
+        System.out.println("=== Sort Passenger Bogies by Capacity ===");
 
-        System.out.println("Train consist initialized.");
-        System.out.println("Current bogie count: " + bogies.size());
+        System.out.print("Before sorting: ");
+        for (int c : capacities) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+
+        // Bubble sort
+        int n = capacities.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (capacities[j] > capacities[j + 1]) {
+                    int temp        = capacities[j];
+                    capacities[j]   = capacities[j + 1];
+                    capacities[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.print("After sorting:  ");
+        for (int c : capacities) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
 
     }
 }
