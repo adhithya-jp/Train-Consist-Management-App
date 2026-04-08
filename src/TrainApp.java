@@ -1,16 +1,32 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class TrainApp {
 
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        System.out.println("=== Handle Invalid Bogie Capacity ===");
 
-        List<String> bogies = new ArrayList<>();
+        // Valid bogie
+        try {
+            PassengerBogie validBogie = new PassengerBogie("Sleeper", 72);
+            System.out.println("Bogie created successfully: " + validBogie);
+        } catch (InvalidCapacityException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
-        System.out.println("Train consist initialized.");
-        System.out.println("Current bogie count: " + bogies.size());
+        // Invalid bogie - zero capacity
+        try {
+            PassengerBogie zeroBogie = new PassengerBogie("AC Chair", 0);
+            System.out.println("Bogie created successfully: " + zeroBogie);
+        } catch (InvalidCapacityException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        // Invalid bogie - negative capacity
+        try {
+            PassengerBogie negativeBogie = new PassengerBogie("First Class", -10);
+            System.out.println("Bogie created successfully: " + negativeBogie);
+        } catch (InvalidCapacityException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
     }
 }
