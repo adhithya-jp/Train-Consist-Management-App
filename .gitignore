@@ -1,0 +1,11 @@
+# IDE
+.idea/
+
+# Compiled
+*.class
+*.jar
+*.war
+
+# OS
+.DS_Store
+Thumbs.db
