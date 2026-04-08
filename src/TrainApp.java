@@ -5,12 +5,24 @@ public class TrainApp {
 
     public static void main(String[] args) {
 
-        System.out.println("=== Train Consist Management App ===");
+        List<Bogie> bogies = new ArrayList<>();
 
-        List<String> bogies = new ArrayList<>();
+        bogies.add(new Bogie("Sleeper",     72));
+        bogies.add(new Bogie("AC Chair",    64));
+        bogies.add(new Bogie("First Class", 48));
+        bogies.add(new Bogie("Cargo A",      0));
+        bogies.add(new Bogie("Cargo B",      0));
 
-        System.out.println("Train consist initialized.");
-        System.out.println("Current bogie count: " + bogies.size());
+        int totalSeats = bogies.stream()
+                .map(b -> b.capacity)
+                .reduce(0, Integer::sum);
+
+        System.out.println("Bogies in train:");
+        for (Bogie b : bogies) {
+            System.out.println("  " + b);
+        }
+
+        System.out.println("Total seating capacity: " + totalSeats);
 
     }
 }
